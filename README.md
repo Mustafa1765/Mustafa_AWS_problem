@@ -86,8 +86,8 @@ Typing `secret` reveals Mustafa's personal story and philosophy:
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/your-username/aws-builder-portfolio.git
-   cd aws-builder-portfolio
+   git clone https://github.com/Mustafa1765/Mustafa_AWS_problem.git
+   cd Mustafa_AWS_problem
    ```
 
 2. **Install dependencies:**

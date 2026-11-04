@@ -273,7 +273,7 @@ export class CloudTerminal {
       <div class="term-card">
         <div class="term-title">📬 Get in Touch</div>
         <p>• <strong>Email:</strong> <a href="mailto:mustafaalishaik@example.com" class="term-link">Contact Mustafa</a></p>
-        <p>• <strong>GitHub:</strong> <a href="https://github.com" target="_blank" class="term-link">github.com (Repository Linked)</a></p>
+        <p>• <strong>GitHub:</strong> <a href="https://github.com/Mustafa1765/Mustafa_AWS_problem" target="_blank" class="term-link">github.com/Mustafa1765/Mustafa_AWS_problem</a></p>
         <p>• <strong>LinkedIn:</strong> <a href="https://linkedin.com" target="_blank" class="term-link">Shaik Mustafa Ali</a></p>
       </div>
     `);

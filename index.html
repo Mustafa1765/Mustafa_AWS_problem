@@ -1,0 +1,959 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shaik Mustafa Ali | AWS Cloud Builder & Full-Stack Developer</title>
+    
+    <!-- SEO & Metadata -->
+    <meta name="description" content="Personal portfolio of Shaik Mustafa Ali - Student Builder, Hacktoberfest Winner, and AWS Cloud Enthusiast. Featuring interactive Cloud CLI, serverless showcase, and production-ready architectures." />
+    <meta name="keywords" content="Shaik Mustafa Ali, AWS, AWS Amplify, Cloud Builder, Full Stack Developer, Hacktoberfest, Serverless, Cloud Architecture, Portfolio" />
+    <meta name="author" content="Shaik Mustafa Ali" />
+    <meta property="og:title" content="Shaik Mustafa Ali | AWS Cloud Builder Portfolio" />
+    <meta property="og:description" content="Explore projects, skills, and interactive Cloud CLI built by Shaik Mustafa Ali. Deployed on AWS Amplify." />
+    <meta property="og:type" content="website" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body class="dark-theme">
+    <!-- Background Canvas for Dynamic Cloud Mesh -->
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- Skip to main content for accessibility -->
+    <a href="#about" class="skip-link">Skip to Content</a>
+
+    <!-- Top Announcement / Visible Hint Banner -->
+    <div class="top-hint-banner" id="top-hint-banner">
+      <div class="hint-content">
+        <span class="hint-icon">💡</span>
+        <span class="hint-text"><strong>Creative Feature Hint:</strong> Press <kbd class="kbd-pill">~</kbd> or click the <strong>Cloud CLI</strong> badge to unlock Mustafa's hidden story & retro arcade!</span>
+      </div>
+      <button class="hint-action-btn" id="banner-open-terminal-btn">Launch CLI ⚡</button>
+      <button class="hint-close-btn" id="banner-close-btn" aria-label="Dismiss banner">&times;</button>
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="site-header" id="navbar">
+      <div class="nav-container">
+        <a href="#hero" class="brand-logo" id="brand-link">
+          <span class="brand-bracket">&lt;</span>
+          <span class="brand-name">MUSTAFA</span>
+          <span class="brand-dot">.</span>
+          <span class="brand-tag">AWS</span>
+          <span class="brand-bracket">/&gt;</span>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav class="nav-links" id="desktop-nav" aria-label="Main Navigation">
+          <a href="#about" class="nav-item">About Me</a>
+          <a href="#skills" class="nav-item">Tech Superpowers</a>
+          <a href="#projects" class="nav-item">Projects & Wins</a>
+          <a href="#architecture" class="nav-item">AWS Architecture</a>
+          <a href="#contact" class="nav-item">Contact</a>
+        </nav>
+
+        <!-- Right Side Nav Actions -->
+        <div class="nav-actions">
+          <!-- Audio FX Toggle -->
+          <button class="icon-btn" id="audio-toggle-btn" title="Toggle Sound FX" aria-label="Toggle Sound Effects">
+            <span id="audio-icon">🔊</span>
+          </button>
+
+          <!-- Creative Feature Badge / Trigger (Visible Hint Requirement) -->
+          <button class="terminal-trigger-pill" id="nav-terminal-trigger" title="Launch Interactive Cloud CLI">
+            <span class="pulse-indicator"></span>
+            <span class="pill-icon">⚡</span>
+            <span class="pill-label">Cloud CLI</span>
+            <span class="pill-shortcut">~</span>
+          </button>
+
+          <!-- GitHub Repo Link (Submission Requirement) -->
+          <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="github-badge-btn" id="github-repo-link" title="View Source on GitHub">
+            <svg class="nav-svg-icon" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+            </svg>
+            <span class="btn-text">GitHub</span>
+          </a>
+
+          <!-- Mobile Hamburger Toggle -->
+          <button class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="Open mobile menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Menu Dropdown -->
+      <div class="mobile-dropdown" id="mobile-menu">
+        <a href="#about" class="mobile-item">About Me</a>
+        <a href="#skills" class="mobile-item">Tech Superpowers</a>
+        <a href="#projects" class="mobile-item">Projects & Wins</a>
+        <a href="#architecture" class="mobile-item">AWS Architecture</a>
+        <a href="#contact" class="mobile-item">Contact</a>
+        <button class="mobile-terminal-btn" id="mobile-terminal-trigger">⚡ Launch Cloud CLI & Arcade</button>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <!-- HERO SECTION -->
+      <section class="hero-section" id="hero">
+        <div class="container hero-container">
+          <!-- Left Column: Copy & CTAs -->
+          <div class="hero-content">
+            <div class="hero-badge-row">
+              <span class="status-pill">
+                <span class="pulse-dot"></span>
+                <span>AWS Builder Center Competitor</span>
+              </span>
+              <span class="trophy-pill">
+                <span>🏆 Hacktoberfest Winner</span>
+              </span>
+            </div>
+
+            <h1 class="hero-title">
+              Hi, I'm <span class="highlight-name">Shaik Mustafa Ali</span>
+              <br />
+              <span class="gradient-text">Architecting Cloud Solutions</span> & Modern Web Apps
+            </h1>
+
+            <p class="hero-description">
+              Computer science student builder passionate about serverless cloud systems, high-speed web platforms, and open-source collaboration. Powered by AWS Amplify & CloudFront.
+            </p>
+
+            <!-- Action Buttons -->
+            <div class="hero-actions">
+              <a href="#projects" class="btn btn-primary" id="explore-projects-btn">
+                <span>Explore Projects</span>
+                <span class="btn-arrow">→</span>
+              </a>
+
+              <!-- Creative Feature Launcher CTA -->
+              <button class="btn btn-terminal" id="hero-terminal-btn">
+                <span class="terminal-sparkle">✨</span>
+                <span>Open Cloud CLI (Interactive)</span>
+              </button>
+
+              <a href="#contact" class="btn btn-outline">
+                <span>Get In Touch</span>
+              </a>
+            </div>
+
+            <!-- Metric Highlights -->
+            <div class="hero-metrics">
+              <div class="metric-card">
+                <div class="metric-num">100%</div>
+                <div class="metric-label">Serverless & CDN Powered</div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-num">4+</div>
+                <div class="metric-label">Hacktoberfest PRs Merged</div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-num">&lt;200ms</div>
+                <div class="metric-label">Global Edge Latency</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Interactive Cloud Core Visualizer -->
+          <div class="hero-visual">
+            <div class="cloud-hub-card">
+              <div class="hub-header">
+                <div class="hub-dots">
+                  <span class="dot red"></span>
+                  <span class="dot yellow"></span>
+                  <span class="dot green"></span>
+                </div>
+                <div class="hub-title">AWS Infrastructure Topology</div>
+                <div class="hub-status">
+                  <span class="live-dot"></span> LIVE
+                </div>
+              </div>
+
+              <div class="hub-diagram">
+                <!-- User Node -->
+                <div class="diagram-node node-user">
+                  <div class="node-icon">🌍</div>
+                  <div class="node-label">Global Users</div>
+                </div>
+
+                <!-- Connection Line -->
+                <div class="data-pipe pipe-1">
+                  <div class="stream-packet"></div>
+                </div>
+
+                <!-- CloudFront CDN Node -->
+                <div class="diagram-node node-cdn">
+                  <div class="node-icon">⚡</div>
+                  <div class="node-label">CloudFront CDN</div>
+                  <div class="node-sub">Edge Cache</div>
+                </div>
+
+                <!-- Connection Line -->
+                <div class="data-pipe pipe-2">
+                  <div class="stream-packet"></div>
+                </div>
+
+                <!-- Amplify / S3 Node -->
+                <div class="diagram-node node-amplify">
+                  <div class="node-icon">☁️</div>
+                  <div class="node-label">AWS Amplify</div>
+                  <div class="node-sub">CI/CD & S3</div>
+                </div>
+              </div>
+
+              <!-- Interactive Hub Footer -->
+              <div class="hub-footer">
+                <div class="hub-stat">
+                  <span class="stat-name">Hosting:</span>
+                  <span class="stat-val highlight-aws">AWS Amplify</span>
+                </div>
+                <div class="hub-stat">
+                  <span class="stat-name">Region:</span>
+                  <span class="stat-val">Global (Edge)</span>
+                </div>
+                <div class="hub-stat">
+                  <span class="stat-name">Security:</span>
+                  <span class="stat-val status-secure">SSL Enforced</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CORE SECTION 1: ABOUT ME -->
+      <section class="section about-section" id="about">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-tag">01 // IDENTITY & STORY</div>
+            <h2 class="section-title">About Me</h2>
+            <p class="section-subtitle">Bridging the gap between sleek frontends and resilient cloud backends.</p>
+          </div>
+
+          <div class="about-grid">
+            <!-- Left: Personal Story -->
+            <div class="about-card story-card">
+              <h3 class="card-title">The Builder's Journey</h3>
+              <p>
+                Hello! I'm <strong>Shaik Mustafa Ali</strong>, a passionate Computer Science student and software builder. I love decomposing complex distributed systems into elegant, high-performance web applications that deliver instant value to users.
+              </p>
+              <p>
+                My journey began with curiosity about how data travels across the globe in milliseconds. From writing my first JavaScript algorithms to earning the <strong>Hacktoberfest Winner</strong> badge by contributing to international open-source projects, I've continuously pushed myself to learn by building.
+              </p>
+              <p>
+                Currently, I am diving deep into the AWS Cloud Ecosystem—leveraging <strong>AWS Amplify, Lambda, CloudFront, and S3</strong> to build resilient serverless applications. I believe software engineering is modern craftsmanship: every line of code should have intent, durability, and speed.
+              </p>
+
+              <!-- Core Pillars -->
+              <div class="core-pillars">
+                <div class="pillar-item">
+                  <span class="pillar-icon">🎯</span>
+                  <div>
+                    <h4>Precision Engineering</h4>
+                    <p>Writing clean, maintainable code with strict typing and modular architecture.</p>
+                  </div>
+                </div>
+                <div class="pillar-item">
+                  <span class="pillar-icon">☁️</span>
+                  <div>
+                    <h4>Cloud Native</h4>
+                    <p>Designing for elasticity, serverless automation, and global availability.</p>
+                  </div>
+                </div>
+                <div class="pillar-item">
+                  <span class="pillar-icon">🤝</span>
+                  <div>
+                    <h4>Open Source Mindset</h4>
+                    <p>Collaborating openly, documenting transparently, and helping fellow builders grow.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right: Interactive Milestone Timeline -->
+            <div class="about-card timeline-card">
+              <h3 class="card-title">Milestones & Achievements</h3>
+              <div class="timeline">
+                <div class="timeline-item active">
+                  <div class="timeline-marker"></div>
+                  <div class="timeline-content">
+                    <span class="timeline-date">Nov 2026</span>
+                    <h4 class="timeline-title">AWS Builder Center Challenge</h4>
+                    <p>Designed and deployed an interactive cloud portfolio with custom CLI, retro arcade, and AWS Amplify CI/CD automation.</p>
+                  </div>
+                </div>
+
+                <div class="timeline-item active">
+                  <div class="timeline-marker"></div>
+                  <div class="timeline-content">
+                    <span class="timeline-date">Oct 2026</span>
+                    <h4 class="timeline-title">Hacktoberfest Winner 🏆</h4>
+                    <p>Successfully submitted 4+ merged pull requests across global open-source codebases, mastering Git teamwork and code reviews.</p>
+                  </div>
+                </div>
+
+                <div class="timeline-item">
+                  <div class="timeline-marker"></div>
+                  <div class="timeline-content">
+                    <span class="timeline-date">Mid 2025</span>
+                    <h4 class="timeline-title">Full-Stack Cloud Projects</h4>
+                    <p>Developed dynamic web applications with RESTful APIs, modern responsive CSS, and cloud deployment pipelines.</p>
+                  </div>
+                </div>
+
+                <div class="timeline-item">
+                  <div class="timeline-marker"></div>
+                  <div class="timeline-content">
+                    <span class="timeline-date">2024</span>
+                    <h4 class="timeline-title">The Foundation</h4>
+                    <p>Started deep dive into Computer Science, algorithms, data structures, and web technologies.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CORE SECTION 2: SKILLS / TECH SUPERPOWERS -->
+      <section class="section skills-section" id="skills">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-tag">02 // ARSENAL</div>
+            <h2 class="section-title">Tech Superpowers</h2>
+            <p class="section-subtitle">Categorized technologies and tools I utilize to construct production-ready digital products.</p>
+          </div>
+
+          <!-- Category Filter Buttons -->
+          <div class="skills-filter-nav" role="tablist">
+            <button class="filter-tab active" data-category="all" role="tab">All Superpowers</button>
+            <button class="filter-tab" data-category="cloud" role="tab">Cloud & AWS</button>
+            <button class="filter-tab" data-category="frontend" role="tab">Frontend & UI</button>
+            <button class="filter-tab" data-category="backend" role="tab">Backend & APIs</button>
+            <button class="filter-tab" data-category="devops" role="tab">DevOps & Tooling</button>
+          </div>
+
+          <!-- Skills Cards Grid -->
+          <div class="skills-grid" id="skills-container">
+            <!-- AWS Amplify -->
+            <div class="skill-card" data-category="cloud">
+              <div class="skill-top">
+                <span class="skill-icon">☁️</span>
+                <span class="skill-level">Proficient</span>
+              </div>
+              <h3 class="skill-name">AWS Amplify</h3>
+              <p class="skill-desc">Continuous hosting, full-stack CI/CD workflow, branch deployments, custom domains.</p>
+              <div class="skill-meter">
+                <div class="skill-bar" style="width: 92%"></div>
+              </div>
+              <div class="skill-tags">
+                <span>Hosting</span>
+                <span>CI/CD</span>
+                <span>SSL</span>
+              </div>
+            </div>
+
+            <!-- AWS S3 & CloudFront -->
+            <div class="skill-card" data-category="cloud">
+              <div class="skill-top">
+                <span class="skill-icon">⚡</span>
+                <span class="skill-level">Advanced</span>
+              </div>
+              <h3 class="skill-name">S3 & CloudFront</h3>
+              <p class="skill-desc">High-durability object storage paired with low-latency edge caching and SSL termination.</p>
+              <div class="skill-meter">
+                <div class="skill-bar" style="width: 88%"></div>
+              </div>
+              <div class="skill-tags">
+                <span>Storage</span>
+                <span>CDN</span>
+                <span>Edge</span>
+              </div>
+            </div>
+
+            <!-- AWS Lambda & Serverless -->
+            <div class="skill-card" data-category="cloud">
+              <div class="skill-top">
+                <span class="skill-icon">λ</span>
+                <span class="skill-level">Intermediate</span>
+              </div>
+              <h3 class="skill-name">AWS Lambda</h3>
+              <p class="skill-desc">Event-driven serverless compute, microservices, API Gateway triggers, stateless execution.</p>
+              <div class="skill-meter">
+                <div class="skill-bar" style="width: 82%"></div>
+              </div>
+              <div class="skill-tags">
+                <span>Serverless</span>
+                <span>Node.js</span>
+                <span>Events</span>
+              </div>
+            </div>
+
+            <!-- Modern JavaScript & ES6+ -->
+            <div class="skill-card" data-category="frontend">
+              <div class="skill-top">
+                <span class="skill-icon">📜</span>
+                <span class="skill-level">Expert</span>
+              </div>
+              <h3 class="skill-name">Modern JavaScript (ES6+)</h3>
+              <p class="skill-desc">Asynchronous programming, Web APIs, DOM manipulation, modular architectures, performance tuning.</p>
+              <div class="skill-meter">
+                <div class="skill-bar" style="width: 95%"></div>
+              </div>
+              <div class="skill-tags">
+                <span>ESNext</span>
+                <span>Async/Await</span>
+                <span>Web Audio</span>
+              </div>
+            </div>
+
+            <!-- Responsive UI & CSS Systems -->
+            <div class="skill-card" data-category="frontend">
+              <div class="skill-top">
+                <span class="skill-icon">🎨</span>
+                <span class="skill-level">Advanced</span>
+              </div>
+              <h3 class="skill-name">Advanced CSS & UX Design</h3>
+              <p class="skill-desc">Custom design tokens, glassmorphism, responsive grid/flexbox, keyframe animations, accessibility.</p>
+              <div class="skill-meter">
+                <div class="skill-bar" style="width: 90%"></div>
+              </div>
+              <div class="skill-tags">
+                <span>Flexbox</span>
+                <span>Grid</span>
+                <span>A11y</span>
+              </div>
+            </div>
+
+            <!-- Node.js & REST APIs -->
+            <div class="skill-card" data-category="backend">
+              <div class="skill-top">
+                <span class="skill-icon">⚙️</span>
+                <span class="skill-level">Proficient</span>
+              </div>
+              <h3 class="skill-name">Node.js & Express</h3>
+              <p class="skill-desc">Building REST APIs, middleware pipelines, authentication logic, JSON payload handling.</p>
+              <div class="skill-meter">
+                <div class="skill-bar" style="width: 85%"></div>
+              </div>
+              <div class="skill-tags">
+                <span>Backend</span>
+                <span>REST</span>
+                <span>JSON</span>
+              </div>
+            </div>
+
+            <!-- Git & GitHub Automation -->
+            <div class="skill-card" data-category="devops">
+              <div class="skill-top">
+                <span class="skill-icon">🐙</span>
+                <span class="skill-level">Advanced</span>
+              </div>
+              <h3 class="skill-name">Git & GitHub Actions</h3>
+              <p class="skill-desc">Version control, branch protection, pull request workflows, automated testing & continuous delivery.</p>
+              <div class="skill-meter">
+                <div class="skill-bar" style="width: 92%"></div>
+              </div>
+              <div class="skill-tags">
+                <span>Open Source</span>
+                <span>Workflows</span>
+                <span>VCS</span>
+              </div>
+            </div>
+
+            <!-- CloudWatch & Observability -->
+            <div class="skill-card" data-category="devops">
+              <div class="skill-top">
+                <span class="skill-icon">📊</span>
+                <span class="skill-level">Intermediate</span>
+              </div>
+              <h3 class="skill-name">CloudWatch & Monitoring</h3>
+              <p class="skill-desc">Logging, metric tracking, error alarms, uptime auditing, deployment logs analysis.</p>
+              <div class="skill-meter">
+                <div class="skill-bar" style="width: 80%"></div>
+              </div>
+              <div class="skill-tags">
+                <span>Logs</span>
+                <span>Auditing</span>
+                <span>Uptime</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CORE SECTION 3: PROJECTS & ACHIEVEMENTS -->
+      <section class="section projects-section" id="projects">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-tag">03 // PROOF OF WORK</div>
+            <h2 class="section-title">Projects & Achievements</h2>
+            <p class="section-subtitle">Real-world applications, open-source milestones, and cloud implementations.</p>
+          </div>
+
+          <div class="projects-grid">
+            <!-- Project 1: Hacktoberfest Victory -->
+            <div class="project-card featured-project" data-project="hacktoberfest">
+              <div class="project-badge-top">🏆 Open Source Winner</div>
+              <div class="project-content">
+                <div class="project-meta">
+                  <span class="project-type">Open Source Impact</span>
+                  <span class="project-year">2026</span>
+                </div>
+                <h3 class="project-title">Hacktoberfest Global Open Source Champion</h3>
+                <p class="project-desc">
+                  Contributed to global open-source projects across international communities. Authored 4+ merged pull requests addressing bug fixes, UI improvements, and documentation enhancements with high code review standards.
+                </p>
+                <div class="project-tech-pills">
+                  <span>Git</span>
+                  <span>GitHub</span>
+                  <span>JavaScript</span>
+                  <span>Open Source</span>
+                  <span>CI Testing</span>
+                </div>
+                <div class="project-links">
+                  <button class="btn btn-sm btn-primary project-details-btn" data-project="hacktoberfest">
+                    Case Study & Details 📖
+                  </button>
+                  <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline">
+                    GitHub PRs ↗
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project 2: AWS Serverless Cloud Portfolio & CLI -->
+            <div class="project-card featured-project" data-project="aws-portfolio">
+              <div class="project-badge-top highlight-badge">☁️ AWS Builder Submission</div>
+              <div class="project-content">
+                <div class="project-meta">
+                  <span class="project-type">Cloud & Web Platform</span>
+                  <span class="project-year">2026</span>
+                </div>
+                <h3 class="project-title">AWS Serverless Portfolio & Interactive Cloud CLI</h3>
+                <p class="project-desc">
+                  Built and globally deployed on AWS Amplify Hosting. Features an interactive terminal emulator with autocomplete, retro arcade mini-game ("Serverless Defender"), Web Audio API synthesizer, and sub-200ms edge delivery.
+                </p>
+                <div class="project-tech-pills">
+                  <span>AWS Amplify</span>
+                  <span>CloudFront</span>
+                  <span>Vite</span>
+                  <span>Vanilla CSS</span>
+                  <span>Web Audio API</span>
+                </div>
+                <div class="project-links">
+                  <button class="btn btn-sm btn-primary project-details-btn" data-project="aws-portfolio">
+                    Architecture & Insights 🔍
+                  </button>
+                  <button class="btn btn-sm btn-terminal terminal-launch-from-project">
+                    Launch CLI ⚡
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project 3: CloudScale Platform -->
+            <div class="project-card" data-project="cloudscale">
+              <div class="project-content">
+                <div class="project-meta">
+                  <span class="project-type">Full-Stack Application</span>
+                  <span class="project-year">2025</span>
+                </div>
+                <h3 class="project-title">CloudScale: Real-Time Metrics Dashboard</h3>
+                <p class="project-desc">
+                  High-performance web dashboard featuring real-time client-side analytics, responsive charting, and RESTful API integrations with sub-second data refresh intervals.
+                </p>
+                <div class="project-tech-pills">
+                  <span>Node.js</span>
+                  <span>REST API</span>
+                  <span>Responsive CSS</span>
+                  <span>Canvas API</span>
+                </div>
+                <div class="project-links">
+                  <button class="btn btn-sm btn-outline project-details-btn" data-project="cloudscale">
+                    View Specs
+                  </button>
+                  <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-ghost">
+                    Repository ↗
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project 4: Serverless Event Pipeline -->
+            <div class="project-card" data-project="event-pipeline">
+              <div class="project-content">
+                <div class="project-meta">
+                  <span class="project-type">AWS Architecture</span>
+                  <span class="project-year">2025</span>
+                </div>
+                <h3 class="project-title">Serverless Event-Driven Processing System</h3>
+                <p class="project-desc">
+                  Architected asynchronous event-driven workflow using AWS Lambda and API Gateway for scalable webhook ingestion and decoupled background compute.
+                </p>
+                <div class="project-tech-pills">
+                  <span>AWS Lambda</span>
+                  <span>API Gateway</span>
+                  <span>JSON Schema</span>
+                  <span>CloudWatch</span>
+                </div>
+                <div class="project-links">
+                  <button class="btn btn-sm btn-outline project-details-btn" data-project="event-pipeline">
+                    View Blueprint
+                  </button>
+                  <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-ghost">
+                    Docs ↗
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- AWS ARCHITECTURE & CLOUD IMPLEMENTATION (25% RUBRIC FOCUS) -->
+      <section class="section architecture-section" id="architecture">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-tag">04 // CLOUD INFRASTRUCTURE</div>
+            <h2 class="section-title">AWS Architecture & Deployment Workflow</h2>
+            <p class="section-subtitle">Documenting how this portfolio leverages AWS Amplify Hosting for global speed, security, and continuous delivery.</p>
+          </div>
+
+          <div class="arch-box">
+            <!-- Architecture Flowchart -->
+            <div class="arch-flow">
+              <div class="flow-step">
+                <div class="step-num">1</div>
+                <div class="step-card">
+                  <span class="step-icon">💻</span>
+                  <h4>Developer Push</h4>
+                  <p>Code pushed to GitHub repository on main branch.</p>
+                  <span class="step-meta">Git commit & tag</span>
+                </div>
+              </div>
+
+              <div class="flow-arrow">➔</div>
+
+              <div class="flow-step">
+                <div class="step-num">2</div>
+                <div class="step-card highlight-step">
+                  <span class="step-icon">⚙️</span>
+                  <h4>AWS Amplify CI/CD</h4>
+                  <p>Amplify triggers build container executing <code>amplify.yml</code>.</p>
+                  <span class="step-meta">Vite Build & Assets</span>
+                </div>
+              </div>
+
+              <div class="flow-arrow">➔</div>
+
+              <div class="flow-step">
+                <div class="step-num">3</div>
+                <div class="step-card">
+                  <span class="step-icon">📦</span>
+                  <h4>Amazon S3 Storage</h4>
+                  <p>Compiled static bundle deployed into encrypted Amazon S3 bucket.</p>
+                  <span class="step-meta">99.999999999% Durability</span>
+                </div>
+              </div>
+
+              <div class="flow-arrow">➔</div>
+
+              <div class="flow-step">
+                <div class="step-num">4</div>
+                <div class="step-card">
+                  <span class="step-icon">⚡</span>
+                  <h4>CloudFront CDN</h4>
+                  <p>Distributed to 600+ Points of Presence with SSL/TLS encryption.</p>
+                  <span class="step-meta">Sub-200ms Global TTFB</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- AWS Highlights Grid -->
+            <div class="arch-benefits-grid">
+              <div class="benefit-card">
+                <div class="b-icon">🚀</div>
+                <h4>Zero-Downtime Atomic Deploys</h4>
+                <p>New versions go live only after full build verification. If any step fails, traffic remains on the healthy version.</p>
+              </div>
+
+              <div class="benefit-card">
+                <div class="b-icon">🔒</div>
+                <h4>Automatic HTTPS & Security</h4>
+                <p>Integrated SSL/TLS certificates provided by AWS Certificate Manager (ACM) ensure end-to-end encrypted traffic.</p>
+              </div>
+
+              <div class="benefit-card">
+                <div class="b-icon">🌐</div>
+                <h4>Edge Caching & Performance</h4>
+                <p>Amazon CloudFront edge locations cache static assets close to judges and visitors worldwide, minimizing latency.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT SECTION -->
+      <section class="section contact-section" id="contact">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-tag">05 // COLLABORATE</div>
+            <h2 class="section-title">Get In Touch</h2>
+            <p class="section-subtitle">Let's discuss cloud engineering, hackathons, open-source projects, or new opportunities.</p>
+          </div>
+
+          <div class="contact-wrapper">
+            <!-- Contact Info Cards -->
+            <div class="contact-info">
+              <h3 class="contact-lead">Let's build something remarkable together!</h3>
+              <p>
+                Whether you're an AWS Judge, recruiter, open-source maintainer, or fellow student builder, my inbox is always open.
+              </p>
+
+              <div class="info-items">
+                <div class="info-item">
+                  <span class="info-icon">📍</span>
+                  <div>
+                    <span class="info-label">Location</span>
+                    <span class="info-val">India (Available Globally & Remote)</span>
+                  </div>
+                </div>
+
+                <div class="info-item">
+                  <span class="info-icon">🏆</span>
+                  <div>
+                    <span class="info-label">Accreditations</span>
+                    <span class="info-val">Hacktoberfest Winner • AWS Builder</span>
+                  </div>
+                </div>
+
+                <div class="info-item">
+                  <span class="info-icon">⚡</span>
+                  <div>
+                    <span class="info-label">Quick Connect</span>
+                    <span class="info-val">Click Cloud CLI & run <code>contact</code></span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Social Links -->
+              <div class="social-links-row">
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="social-pill" id="footer-github-link">
+                  <span>GitHub</span> ↗
+                </a>
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-pill" id="footer-linkedin-link">
+                  <span>LinkedIn</span> ↗
+                </a>
+                <a href="mailto:mustafaalishaik@example.com" class="social-pill" id="footer-email-link">
+                  <span>Email Me</span> ✉️
+                </a>
+              </div>
+            </div>
+
+            <!-- Interactive Contact Form -->
+            <div class="contact-form-box">
+              <form id="contact-form" class="custom-form">
+                <div class="form-group">
+                  <label for="form-name">Your Name</label>
+                  <input type="text" id="form-name" placeholder="e.g. AWS Reviewer / Friend" required />
+                </div>
+
+                <div class="form-group">
+                  <label for="form-email">Your Email</label>
+                  <input type="email" id="form-email" placeholder="e.g. reviewer@amazon.com" required />
+                </div>
+
+                <div class="form-group">
+                  <label for="form-subject">Subject</label>
+                  <input type="text" id="form-subject" placeholder="e.g. AWS Portfolio Feedback / Opportunity" required />
+                </div>
+
+                <div class="form-group">
+                  <label for="form-message">Message</label>
+                  <textarea id="form-message" rows="4" placeholder="Hi Mustafa, loved your Cloud CLI & Serverless Defender game..." required></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block" id="form-submit-btn">
+                  <span>Send Message</span>
+                  <span class="btn-arrow">✉️</span>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <div class="container footer-container">
+        <div class="footer-brand">
+          <span class="brand-bracket">&lt;</span>
+          <span class="brand-name">MUSTAFA</span>
+          <span class="brand-tag">AWS</span>
+          <span class="brand-bracket">/&gt;</span>
+          <span class="footer-copy">Crafted with passion for the AWS Builder Center Student Portfolio Challenge.</span>
+        </div>
+
+        <div class="footer-meta">
+          <span class="live-status">
+            <span class="pulse-green"></span> 100% Hosted on AWS Amplify
+          </span>
+          <button class="footer-cli-btn" id="footer-terminal-btn">Launch CLI [~]</button>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ======================================================== -->
+    <!-- CREATIVE FEATURE 1: INTERACTIVE CLOUD CLI MODAL -->
+    <!-- ======================================================== -->
+    <div class="terminal-modal-overlay hidden" id="terminal-modal" role="dialog" aria-modal="true" aria-labelledby="term-header-title">
+      <div class="terminal-window theme-dark" id="terminal-window">
+        <!-- Terminal Title Bar -->
+        <div class="term-titlebar">
+          <div class="term-controls">
+            <button class="t-btn t-close" id="term-close-btn" title="Close CLI" aria-label="Close Terminal"></button>
+            <button class="t-btn t-min" id="term-min-btn" title="Minimize CLI" aria-label="Minimize Terminal"></button>
+            <button class="t-btn t-max" id="term-max-btn" title="Maximize CLI" aria-label="Maximize Terminal"></button>
+          </div>
+          <div class="term-title" id="term-header-title">
+            <span class="term-icon">⚡</span> mustafa@aws-cloud: ~ (Amplify CLI v2.6)
+          </div>
+          <div class="term-theme-switcher">
+            <span class="theme-label">Theme:</span>
+            <select id="term-theme-select" aria-label="Terminal Theme">
+              <option value="dark">Dark Slate</option>
+              <option value="matrix">Matrix Green</option>
+              <option value="amber">Amber CRT</option>
+              <option value="cyber">Cyber Neon</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Terminal Output Buffer -->
+        <div class="term-body" id="term-body">
+          <div id="term-output"></div>
+          
+          <!-- Active Prompt Line -->
+          <div class="term-line term-active-line">
+            <span class="term-prompt">mustafa@aws-cloud:~$</span>
+            <input type="text" id="term-input" class="term-input-field" autocomplete="off" spellcheck="false" autofocus aria-label="Terminal command prompt" />
+          </div>
+        </div>
+
+        <!-- Quick Command Pills for Touch & Fast Click -->
+        <div class="term-quick-bar">
+          <span class="quick-label">Quick Commands:</span>
+          <button class="quick-cmd-btn" data-cmd="whoami">whoami</button>
+          <button class="quick-cmd-btn" data-cmd="skills">skills</button>
+          <button class="quick-cmd-btn" data-cmd="projects">projects</button>
+          <button class="quick-cmd-btn" data-cmd="hacktoberfest">hacktoberfest 🏆</button>
+          <button class="quick-cmd-btn" data-cmd="aws">aws stack ☁️</button>
+          <button class="quick-cmd-btn highlight-quick" data-cmd="secret">secret ✨</button>
+          <button class="quick-cmd-btn game-quick" data-cmd="play">play arcade 🎮</button>
+          <button class="quick-cmd-btn" data-cmd="help">help</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ======================================================== -->
+    <!-- CREATIVE FEATURE 2: RETRO ARCADE MINI-GAME MODAL -->
+    <!-- ======================================================== -->
+    <div class="arcade-modal-overlay hidden" id="arcade-modal" role="dialog" aria-modal="true" aria-labelledby="arcade-title">
+      <div class="arcade-window">
+        <div class="arcade-header">
+          <div class="arcade-title-group">
+            <span class="arcade-icon">👾</span>
+            <h3 id="arcade-title">Serverless Defender: Cloud Arcade</h3>
+          </div>
+          <div class="arcade-score" id="game-score-display">
+            Score: 0 | Best: 0
+          </div>
+          <button class="arcade-close-btn" id="arcade-close-btn" aria-label="Close Arcade">&times;</button>
+        </div>
+
+        <!-- Canvas Game Screen -->
+        <div class="arcade-screen-wrapper">
+          <canvas id="game-canvas"></canvas>
+        </div>
+
+        <!-- Game Controls & Info -->
+        <div class="arcade-footer">
+          <div class="game-instructions">
+            <span><strong>Controls:</strong> [A] / [D] or Arrow Keys to move • [Space] to deploy Lambda Lasers!</span>
+          </div>
+
+          <!-- Mobile Touch Controls -->
+          <div class="mobile-arcade-controls">
+            <button class="touch-btn" id="touch-left">◀ Left</button>
+            <button class="touch-btn touch-fire" id="touch-fire">⚡ FIRE</button>
+            <button class="touch-btn" id="touch-right">Right ▶</button>
+          </div>
+
+          <div class="arcade-actions">
+            <button class="btn btn-sm btn-primary" id="game-restart-btn">Restart Simulator</button>
+            <button class="btn btn-sm btn-outline" id="game-back-to-cli-btn">Back to Terminal</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ======================================================== -->
+    <!-- UNLOCKED SECRET ACHIEVEMENT MODAL -->
+    <!-- ======================================================== -->
+    <div class="achievement-modal-overlay hidden" id="achievement-modal" role="dialog" aria-modal="true">
+      <div class="achievement-card">
+        <div class="achievement-badge-icon">🎖️</div>
+        <h3 class="achievement-title">Achievement Unlocked: Master Cloud Builder!</h3>
+        <p class="achievement-desc">
+          You scored 100+ points in Serverless Defender! You’ve unlocked Mustafa’s unique secret:
+        </p>
+        <div class="secret-box">
+          <p>
+            <strong>Mustafa's Secret Recipe:</strong> <em>"Coding isn't just about syntax—it's tactical strategy like chess. Every microservice, cache TTL, and database query is a calculated move designed to keep the system resilient under pressure."</em>
+          </p>
+        </div>
+        <button class="btn btn-primary" id="achievement-claim-btn">Collect Badge & Continue</button>
+      </div>
+    </div>
+
+    <!-- ======================================================== -->
+    <!-- PROJECT CASE STUDY MODAL -->
+    <!-- ======================================================== -->
+    <div class="project-modal-overlay hidden" id="project-modal" role="dialog" aria-modal="true" aria-labelledby="modal-proj-title">
+      <div class="project-modal-card">
+        <button class="proj-modal-close" id="proj-modal-close-btn" aria-label="Close Details">&times;</button>
+        <div id="project-modal-body">
+          <!-- Dynamic Content Populated by JavaScript -->
+        </div>
+      </div>
+    </div>
+
+    <!-- ======================================================== -->
+    <!-- FLOATING CREATIVE FEATURE TRIGGER (VISIBLE HINT) -->
+    <!-- ======================================================== -->
+    <div class="floating-cli-trigger" id="floating-cli-trigger" title="Launch Cloud CLI & Arcade">
+      <div class="floating-tooltip">
+        <span>Press <kbd>~</kbd> or click for CLI</span>
+      </div>
+      <button class="floating-btn" id="floating-btn" aria-label="Open Cloud Terminal">
+        <span class="floating-icon">⚡</span>
+      </button>
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div class="toast-container" id="toast-container"></div>
+
+    <!-- Main Application Scripts -->
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

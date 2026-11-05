@@ -67,7 +67,7 @@ Our deployment follows production cloud best practices:
 
 ## 7. Submission Checklist for Shaik Mustafa Ali:
 - [x] Public portfolio code hosted on GitHub: `https://github.com/Mustafa1765/Mustafa_AWS_problem`
-- [x] Deployed and accessible on AWS Amplify Hosting live URL.
+- [x] Deployed and accessible live URL: `https://mustafa1765.github.io/Mustafa_AWS_problem/` (Ready for AWS Amplify continuous deployment via `amplify.yml`)
 - [x] Three core sections present: About Me, Tech Superpowers, Projects & Achievements.
 - [x] Working interactive creative feature with visible hint.
 - [x] Screenshots captured:
